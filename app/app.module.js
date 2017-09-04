@@ -6,6 +6,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+var toastr_service_1 = require("./common/toastr.service");
+var event_service_1 = require("./events/shared/event.service");
 var event_thumbnail_componenet_1 = require("./events/event-thumbnail.componenet");
 var events_list_component_1 = require("./events/events-list.component");
 var core_1 = require("@angular/core");
@@ -22,6 +24,8 @@ var AppModule = (function () {
                 events_list_component_1.EventsListComponent,
                 event_thumbnail_componenet_1.EventThumbnailComponent,
                 nav_bar_component_1.NavBarComponent],
+            providers: [event_service_1.EventService,
+                toastr_service_1.ToastrService],
             bootstrap: [event_app_component_1.EventAppCompenent]
         })
     ], AppModule);

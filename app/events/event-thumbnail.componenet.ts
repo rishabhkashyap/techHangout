@@ -1,16 +1,22 @@
+import { NgSwitch, NgSwitchCase, NgSwitchDefault } from '@angular/common/src/directives/ng_switch';
 import {Component,Input} from '@angular/core';
 
 @Component({
     selector:'event-thumbnail',
     template:`<div class="well hoverwell thumbnail">
 		<h2>{{techEvent.name}}</h2>
-		<div>Date:{{techEvent.date}}</div>
-		<div>Time:{{techEvent.time}}</div>
-		<div>Price:\${{techEvent.price}}</div>
+		<div>Date:{{techEvent?.date}}</div>
+		<div>Time:{{techEvent?.time}}</div>
+		<div [ngSwitch]="techEvent?.time">
+			<span *ngSwitchCase="'08:00 am'">Early start</span>
+			<span *ngSwitchCase="'10:00 am'">Late start</span>
+			<span *ngSwitchDefault>Normal start</span>
+		</div>
+		<div>Price:\${{techEvent?.price}}</div>
 		<div>
 			<span>Location:{{techEvent.location.address}}</span>
 			<span>&nbsp;&nbsp;</span><br/>
-			<span>City:{{techEvent.location.city}}</span>
+			<span>City:{{techEvent?.location.city}}</span>
 		</div>
 
 	</div>
@@ -26,4 +32,7 @@ export class EventThumbnailComponent{
  handleClick(){
      console.log('Clicked');
  }
+//  handleThumbnailClick(eventName){
+//         toastr.success(eventName)
+//     }
 }
