@@ -3,7 +3,7 @@ import {Component,Input} from '@angular/core';
 
 @Component({
     selector:'event-thumbnail',
-    template:`<div class="well hoverwell thumbnail">
+    template:`<div [routerLink]="['/events',techEvent.id]" class="well hoverwell thumbnail">
 		<h2>{{techEvent.name}}</h2>
 		<div>Date:{{techEvent?.date}}</div>
 		<div>Time:{{techEvent?.time}}</div>
@@ -32,7 +32,5 @@ export class EventThumbnailComponent{
  handleClick(){
      console.log('Clicked');
  }
-//  handleThumbnailClick(eventName){
-//         toastr.success(eventName)
-//     }
+
 }

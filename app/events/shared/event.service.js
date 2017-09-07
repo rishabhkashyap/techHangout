@@ -13,6 +13,9 @@ var EventService = (function () {
     EventService.prototype.getEvents = function () {
         return EVENTS;
     };
+    EventService.prototype.getEventById = function (id) {
+        return EVENTS.find(function (event) { return event.id === id; });
+    };
     EventService = __decorate([
         core_1.Injectable()
     ], EventService);

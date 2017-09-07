@@ -13,7 +13,7 @@ var EventAppCompenent = (function () {
     EventAppCompenent = __decorate([
         core_1.Component({
             selector: 'event-app',
-            template: "\n    <nav-bar></nav-bar>\n    <events-list></events-list>\n    "
+            template: "\n    <nav-bar></nav-bar>\n    <router-outlet></router-outlet>\n    "
         })
     ], EventAppCompenent);
     return EventAppCompenent;
