@@ -1,3 +1,5 @@
+import { EventResolver } from './../events/shared/event-resolver.service';
+import { resolve } from 'dns';
 import { createEventComponent } from './../events/shared/create-eventComponent';
 import { Component } from '@angular/core';
 import { EventDetailsComponenet } from './../events/event-details/event-details.component';
@@ -9,7 +11,8 @@ import * as path from 'path';
 
 export const appRoutes=[
     {path:'events/new',component:createEventComponent},
-    {path:'events',component:EventsListComponent},
+    {path:'events',component:EventsListComponent,resolve:
+{events:EventResolver}},
     {path:'events/:id',component:EventDetailsComponenet},
     {path:'',redirectTo:'/events',pathMatch:'full'}
 ]

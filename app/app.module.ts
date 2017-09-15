@@ -1,3 +1,4 @@
+import { EventResolver } from './events/shared/event-resolver.service';
 import { createEventComponent } from './events/shared/create-eventComponent';
 import { appRoutes } from './nav/routes';
 import { RouterModule } from '@angular/router';
@@ -22,7 +23,8 @@ import{NavBarComponent} from './nav/nav-bar.component'
     EventDetailsComponenet,
     createEventComponent],
     providers:[EventService,
-    ToastrService],
+    ToastrService,
+    EventResolver],
     bootstrap:[EventAppCompenent]
 })
 export class AppModule{

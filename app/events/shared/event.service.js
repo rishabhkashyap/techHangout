@@ -6,12 +6,15 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+var Rx_1 = require("rxjs/Rx");
 var core_1 = require("@angular/core");
 var EventService = (function () {
     function EventService() {
     }
     EventService.prototype.getEvents = function () {
-        return EVENTS;
+        var subject = new Rx_1.Subject();
+        setTimeout(function () { subject.next(EVENTS); subject.complete(); }, 5000);
+        return subject;
     };
     EventService.prototype.getEventById = function (id) {
         return EVENTS.find(function (event) { return event.id === id; });

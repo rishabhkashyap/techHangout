@@ -9,16 +9,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+var router_1 = require("@angular/router");
 var toastr_service_1 = require("../common/toastr.service");
 var event_service_1 = require("./shared/event.service");
 var core_1 = require("@angular/core");
 var EventsListComponent = (function () {
-    function EventsListComponent(eventService, toastrService) {
+    function EventsListComponent(eventService, toastrService, route) {
         this.eventService = eventService;
         this.toastrService = toastrService;
+        this.route = route;
     }
     EventsListComponent.prototype.ngOnInit = function () {
-        this.events = this.eventService.getEvents();
+        // this.eventService.getEvents().subscribe(
+        //    events=> this.events=events
+        // )
+        this.events = this.route.snapshot.data['events'];
     };
     EventsListComponent.prototype.handleThumbnailClick = function (eventName) {
         this.toastrService.success(eventName);
@@ -29,7 +34,7 @@ var EventsListComponent = (function () {
             // templateUrl:'app/events/event-list.component.html'
             template: "\n        <div>\n            <h1>Upcoming Angular event</h1>\n\t        <hr/>\n            <div class=\"row\">\n                <div class=\"col-md-5\" *ngFor=\"let event of events\">\n                    <event-thumbnail  (click)=\"handleThumbnailClick(event.name)\"\n                     [techEvent]=\"event\"></event-thumbnail>\n                </div>\n            </div>\n            \n        </div>\n   "
         }),
-        __metadata("design:paramtypes", [event_service_1.EventService, toastr_service_1.ToastrService])
+        __metadata("design:paramtypes", [event_service_1.EventService, toastr_service_1.ToastrService, router_1.ActivatedRoute])
     ], EventsListComponent);
     return EventsListComponent;
 }());

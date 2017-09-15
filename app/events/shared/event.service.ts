@@ -1,3 +1,6 @@
+import { SubjectSubscription } from 'rxjs/SubjectSubscription';
+import { SubjectSubscriber } from 'rxjs/Subject';
+import { Subject } from 'rxjs/Rx';
 import { Injectable } from '@angular/core';
 
 
@@ -5,11 +8,14 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class EventService {
     getEvents() {
+        let subject=new Subject()
+        setTimeout(()=>{subject.next(EVENTS);subject.complete();},100)
 
-        return EVENTS
+        return subject
     }
     getEventById(id:number){
         return EVENTS.find(event=>event.id===id)
+        
     }
 
 }

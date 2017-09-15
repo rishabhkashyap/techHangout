@@ -6,6 +6,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+var event_resolver_service_1 = require("./events/shared/event-resolver.service");
 var create_eventComponent_1 = require("./events/shared/create-eventComponent");
 var routes_1 = require("./nav/routes");
 var router_1 = require("@angular/router");
@@ -32,7 +33,8 @@ var AppModule = (function () {
                 event_details_component_1.EventDetailsComponenet,
                 create_eventComponent_1.createEventComponent],
             providers: [event_service_1.EventService,
-                toastr_service_1.ToastrService],
+                toastr_service_1.ToastrService,
+                event_resolver_service_1.EventResolver],
             bootstrap: [event_app_component_1.EventAppCompenent]
         })
     ], AppModule);
