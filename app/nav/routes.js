@@ -8,6 +8,7 @@ exports.appRoutes = [
     { path: 'events/new', component: create_eventComponent_1.createEventComponent },
     { path: 'events', component: events_list_component_1.EventsListComponent, resolve: { events: event_resolver_service_1.EventResolver } },
     { path: 'events/:id', component: event_details_component_1.EventDetailsComponenet },
-    { path: '', redirectTo: '/events', pathMatch: 'full' }
+    { path: '', redirectTo: '/events', pathMatch: 'full' },
+    { path: 'user', loadChildren: '/app/user/user.module#UserModule' }
 ];
 //# sourceMappingURL=routes.js.map

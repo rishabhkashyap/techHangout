@@ -13,7 +13,7 @@ var EventService = (function () {
     }
     EventService.prototype.getEvents = function () {
         var subject = new Rx_1.Subject();
-        setTimeout(function () { subject.next(EVENTS); subject.complete(); }, 5000);
+        setTimeout(function () { subject.next(EVENTS); subject.complete(); }, 100);
         return subject;
     };
     EventService.prototype.getEventById = function (id) {

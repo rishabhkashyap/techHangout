@@ -1,3 +1,4 @@
+import { LoadChildren } from '@angular/router/src/config';
 import { EventResolver } from './../events/shared/event-resolver.service';
 import { resolve } from 'dns';
 import { createEventComponent } from './../events/shared/create-eventComponent';
@@ -14,5 +15,6 @@ export const appRoutes=[
     {path:'events',component:EventsListComponent,resolve:
 {events:EventResolver}},
     {path:'events/:id',component:EventDetailsComponenet},
-    {path:'',redirectTo:'/events',pathMatch:'full'}
+    {path:'',redirectTo:'/events',pathMatch:'full'},
+    {path:'user',loadChildren:'/app/user/user.module#UserModule'}
 ]
