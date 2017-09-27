@@ -21,7 +21,6 @@ import { Component, OnInit } from '@angular/core';
                      [techEvent]="event"></event-thumbnail>
                 </div>
             </div>
-            
         </div>
    `
 
