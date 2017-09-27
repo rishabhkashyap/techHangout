@@ -1,3 +1,4 @@
+import { IEvent } from './shared/event.model';
 import { NgSwitch, NgSwitchCase, NgSwitchDefault } from '@angular/common/src/directives/ng_switch';
 import {Component,Input} from '@angular/core';
 
@@ -28,7 +29,7 @@ import {Component,Input} from '@angular/core';
 	`]
 })
 export class EventThumbnailComponent{
- @Input() techEvent:any
+ @Input() techEvent:IEvent
  handleClick(){
      console.log('Clicked');
  }

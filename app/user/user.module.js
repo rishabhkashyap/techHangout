@@ -6,6 +6,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+var login_component_1 = require("./login.component");
 var user_route_1 = require("./user.route");
 var router_1 = require("@angular/router");
 var common_1 = require("@angular/common");
@@ -21,7 +22,8 @@ var UserModule = (function () {
                 router_1.RouterModule.forChild(user_route_1.UserRoutes)
             ],
             declarations: [
-                profile_component_1.ProfileComponent
+                profile_component_1.ProfileComponent,
+                login_component_1.LoginComponent
             ],
             providers: []
         })
