@@ -31,8 +31,8 @@ var EventsListComponent = (function () {
     EventsListComponent = __decorate([
         core_1.Component({
             selector: 'events-list',
-            // templateUrl:'app/events/event-list.component.html'
-            template: "\n        <div>\n            <h1>Upcoming Angular event</h1>\n\t        <hr/>\n            <div class=\"row\">\n                <div class=\"col-md-5\" *ngFor=\"let event of events\">\n                    <event-thumbnail  (click)=\"handleThumbnailClick(event.name)\"\n                     [techEvent]=\"event\"></event-thumbnail>\n                </div>\n            </div>\n            \n        </div>\n   "
+            //templateUrl:'app/events/event-list.component.html'
+            template: "\n        <div>\n            <h1>Upcoming Angular event</h1>\n\t        <hr/>\n            <div class=\"row\">\n                <div class=\"col-md-5\" *ngFor=\"let event of events\">\n                    <event-thumbnail  (click)=\"handleThumbnailClick(event.name)\"\n                     [techEvent]=\"event\"></event-thumbnail>\n                </div>\n            </div>\n        </div>\n   "
         }),
         __metadata("design:paramtypes", [event_service_1.EventService, toastr_service_1.ToastrService, router_1.ActivatedRoute])
     ], EventsListComponent);

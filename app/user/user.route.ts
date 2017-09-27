@@ -5,5 +5,6 @@ import * as path from 'path';
 
 export const UserRoutes=[
     {path:'profile',component:ProfileComponent},
-    {path:'login',compenent:LoginComponent}
+    {path:'login',component:LoginComponent }
 ]
+//ProfileComponent

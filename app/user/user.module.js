@@ -6,6 +6,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+var forms_1 = require("@angular/forms");
 var login_component_1 = require("./login.component");
 var user_route_1 = require("./user.route");
 var router_1 = require("@angular/router");
@@ -19,6 +20,7 @@ var UserModule = (function () {
         core_1.NgModule({
             imports: [
                 common_1.CommonModule,
+                forms_1.FormsModule,
                 router_1.RouterModule.forChild(user_route_1.UserRoutes)
             ],
             declarations: [
