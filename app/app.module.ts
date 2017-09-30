@@ -1,3 +1,4 @@
+import { AuthService } from './user/auth.service';
 import { EventResolver } from './events/shared/event-resolver.service';
 import { createEventComponent } from './events/shared/create-eventComponent';
 import { appRoutes } from './nav/routes';
@@ -24,7 +25,8 @@ import{NavBarComponent} from './nav/nav-bar.component'
     createEventComponent],
     providers:[EventService,
     ToastrService,
-    EventResolver],
+    EventResolver,
+    AuthService],
     bootstrap:[EventAppCompenent]
 })
 export class AppModule{
