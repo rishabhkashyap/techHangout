@@ -21,6 +21,10 @@ var AuthService = (function () {
     AuthService.prototype.isAuthenticated = function () {
         return !!this.currentUser;
     };
+    AuthService.prototype.update = function (firstname, lastname) {
+        this.currentUser.firstname = firstname;
+        this.currentUser.lastname = lastname;
+    };
     AuthService = __decorate([
         core_1.Injectable()
     ], AuthService);

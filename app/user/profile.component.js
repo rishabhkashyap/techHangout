@@ -5,15 +5,39 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
 Object.defineProperty(exports, "__esModule", { value: true });
+var router_1 = require("@angular/router");
+var auth_service_1 = require("./auth.service");
+var forms_1 = require("@angular/forms");
 var core_1 = require("@angular/core");
 var ProfileComponent = (function () {
-    function ProfileComponent() {
+    function ProfileComponent(route, authService) {
+        this.route = route;
+        this.authService = authService;
     }
+    ProfileComponent.prototype.ngOnInit = function () {
+        var firstname = new forms_1.FormControl(this.authService.currentUser.firstname);
+        var lastname = new forms_1.FormControl(this.authService.currentUser.lastname);
+        this.profileForm = new forms_1.FormGroup({
+            firstname: firstname,
+            lastname: lastname
+        });
+    };
+    ProfileComponent.prototype.updateProfile = function (formValues) {
+        this.authService.update(formValues.firstname, formValues.lastname);
+        this.route.navigate(['events']);
+    };
+    ProfileComponent.prototype.cancel = function () {
+        this.route.navigate(['events']);
+    };
     ProfileComponent = __decorate([
         core_1.Component({
-            template: "\n    <h1>Edit Your Profile</h1>\n    <hr>\n    <div class=\"col-md-6\">\n      <h3>[Edit profile form will go here]</h3>\n      <br />\n      <br />\n      <button type=\"submit\" class=\"btn btn-primary\">Save</button>\n      <button type=\"button\" class=\"btn btn-default\">Cancel</button>\n    </div>\n  ",
-        })
+            templateUrl: 'app/user/profile.component.html'
+        }),
+        __metadata("design:paramtypes", [router_1.Router, auth_service_1.AuthService])
     ], ProfileComponent);
     return ProfileComponent;
 }());
