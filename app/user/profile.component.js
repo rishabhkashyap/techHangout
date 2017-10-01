@@ -19,23 +19,32 @@ var ProfileComponent = (function () {
         this.authService = authService;
     }
     ProfileComponent.prototype.ngOnInit = function () {
-        var firstname = new forms_1.FormControl(this.authService.currentUser.firstname);
-        var lastname = new forms_1.FormControl(this.authService.currentUser.lastname);
+        this.firstname = new forms_1.FormControl(this.authService.currentUser.firstname, forms_1.Validators.required);
+        this.lastname = new forms_1.FormControl(this.authService.currentUser.lastname, forms_1.Validators.required);
         this.profileForm = new forms_1.FormGroup({
-            firstname: firstname,
-            lastname: lastname
+            firstname: this.firstname,
+            lastname: this.lastname
         });
     };
     ProfileComponent.prototype.updateProfile = function (formValues) {
-        this.authService.update(formValues.firstname, formValues.lastname);
-        this.route.navigate(['events']);
+        if (this.profileForm.valid) {
+            this.authService.update(formValues.firstname, formValues.lastname);
+            this.route.navigate(['events']);
+        }
     };
     ProfileComponent.prototype.cancel = function () {
         this.route.navigate(['events']);
     };
+    ProfileComponent.prototype.isFirstnameValid = function () {
+        return this.firstname.valid || this.firstname.untouched;
+    };
+    ProfileComponent.prototype.isLastNameValid = function () {
+        return this.lastname.valid || this.lastname.untouched;
+    };
     ProfileComponent = __decorate([
         core_1.Component({
-            templateUrl: 'app/user/profile.component.html'
+            templateUrl: 'app/user/profile.component.html',
+            styles: ["\n    em {float:right; color:#E05C65; padding-left: 10px;}\n    .error input {background-color:#E3C3C5;}\n    .error ::-webkit-input-placeholder { color: #999; }\n    .error ::-moz-placeholder { color: #999; }\n    .error :-moz-placeholder { color:#999; }\n    .error :ms-input-placeholder { color: #999; }\n  "]
         }),
         __metadata("design:paramtypes", [router_1.Router, auth_service_1.AuthService])
     ], ProfileComponent);
