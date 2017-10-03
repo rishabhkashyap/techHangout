@@ -1,3 +1,4 @@
+import { Event } from '@angular/platform-browser/src/facade/browser';
 import { IEvent } from './event.model';
 import { SubjectSubscription } from 'rxjs/SubjectSubscription';
 import { SubjectSubscriber } from 'rxjs/Subject';
@@ -17,6 +18,12 @@ export class EventService {
     getEventById(id:number):IEvent{
         return EVENTS.find(event=>event.id===id)
         
+    }
+    saveEvent(event){
+        event.id=999
+        event.session=[]
+        EVENTS.push(event)
+
     }
 
 }

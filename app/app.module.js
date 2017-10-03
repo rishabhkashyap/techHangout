@@ -6,6 +6,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+var forms_1 = require("@angular/forms");
 var auth_service_1 = require("./user/auth.service");
 var event_resolver_service_1 = require("./events/shared/event-resolver.service");
 var create_eventComponent_1 = require("./events/shared/create-eventComponent");
@@ -26,13 +27,16 @@ var AppModule = (function () {
     AppModule = __decorate([
         core_1.NgModule({
             imports: [platform_browser_1.BrowserModule,
-                router_1.RouterModule.forRoot(routes_1.appRoutes)],
+                router_1.RouterModule.forRoot(routes_1.appRoutes),
+                forms_1.FormsModule,
+                forms_1.ReactiveFormsModule],
             declarations: [event_app_component_1.EventAppCompenent,
                 events_list_component_1.EventsListComponent,
                 event_thumbnail_componenet_1.EventThumbnailComponent,
                 nav_bar_component_1.NavBarComponent,
                 event_details_component_1.EventDetailsComponenet,
-                create_eventComponent_1.createEventComponent],
+                create_eventComponent_1.createEventComponent
+            ],
             providers: [event_service_1.EventService,
                 toastr_service_1.ToastrService,
                 event_resolver_service_1.EventResolver,

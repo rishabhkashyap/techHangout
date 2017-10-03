@@ -9,20 +9,27 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+var event_service_1 = require("./event.service");
 var router_1 = require("@angular/router");
 var core_1 = require("@angular/core");
 var createEventComponent = (function () {
-    function createEventComponent(route) {
+    function createEventComponent(route, eventService) {
         this.route = route;
+        this.eventService = eventService;
     }
     createEventComponent.prototype.cancel = function () {
         this.route.navigate(['/events']);
     };
+    createEventComponent.prototype.saveEvent = function (formValues) {
+        this.eventService.saveEvent(formValues);
+        this.route.navigate(['/events']);
+    };
     createEventComponent = __decorate([
         core_1.Component({
-            template: "\n    <h1>New Event</h1>\n    <hr>\n    <div class=\"col-md-6\">\n        <h3>Create new event here</h3>\n        <br/>\n        <br/>\n        <button type=\"submit\" class=\"btn btn-primary\">Create </button>\n        <button type=\"button\" class=\"btn btn-default\" (click)=\"cancel()\">Cancel</button>\n    </div>\n    "
+            templateUrl: 'app/events/shared/create-event.component.html',
+            styles: ["\n    em {float:right; color:#E05C65; padding-left: 10px;}\n    .error input {background-color:#E3C3C5;}\n    .error ::-webkit-input-placeholder { color: #999; }\n    .error ::-moz-placeholder { color: #999; }\n    .error :-moz-placeholder { color:#999; }\n    .error :ms-input-placeholder { color: #999; }\n  "]
         }),
-        __metadata("design:paramtypes", [router_1.Router])
+        __metadata("design:paramtypes", [router_1.Router, event_service_1.EventService])
     ], createEventComponent);
     return createEventComponent;
 }());

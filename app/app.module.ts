@@ -1,3 +1,4 @@
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from './user/auth.service';
 import { EventResolver } from './events/shared/event-resolver.service';
 import { createEventComponent } from './events/shared/create-eventComponent';
@@ -11,18 +12,22 @@ import { EventsListComponent } from './events/events-list.component';
 import{NgModule} from '@angular/core';
 import{BrowserModule} from '@angular/platform-browser';
 import{EventAppCompenent} from './event-app.component';
-import{NavBarComponent} from './nav/nav-bar.component'
+import{NavBarComponent} from './nav/nav-bar.component';
+
 
 
 @NgModule({
     imports: [BrowserModule,
-    RouterModule.forRoot(appRoutes)],    
+    RouterModule.forRoot(appRoutes),
+    FormsModule,
+    ReactiveFormsModule],    
     declarations:[EventAppCompenent,
     EventsListComponent,
     EventThumbnailComponent,
     NavBarComponent,
     EventDetailsComponenet,
-    createEventComponent],
+    createEventComponent
+    ],
     providers:[EventService,
     ToastrService,
     EventResolver,
