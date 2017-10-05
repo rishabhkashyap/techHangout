@@ -1,3 +1,4 @@
+import { SessionCOmponent } from './events/event-details/create-session.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from './user/auth.service';
 import { EventResolver } from './events/shared/event-resolver.service';
@@ -26,7 +27,8 @@ import{NavBarComponent} from './nav/nav-bar.component';
     EventThumbnailComponent,
     NavBarComponent,
     EventDetailsComponenet,
-    createEventComponent
+    createEventComponent,
+    SessionCOmponent
     ],
     providers:[EventService,
     ToastrService,
