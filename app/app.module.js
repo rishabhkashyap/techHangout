@@ -6,6 +6,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+var session_list_component_1 = require("./events/event-details/session-list.component");
 var create_session_component_1 = require("./events/event-details/create-session.component");
 var forms_1 = require("@angular/forms");
 var auth_service_1 = require("./user/auth.service");
@@ -37,7 +38,8 @@ var AppModule = (function () {
                 nav_bar_component_1.NavBarComponent,
                 event_details_component_1.EventDetailsComponenet,
                 create_eventComponent_1.createEventComponent,
-                create_session_component_1.SessionCOmponent
+                create_session_component_1.SessionCOmponent,
+                session_list_component_1.SessionListComponent
             ],
             providers: [event_service_1.EventService,
                 toastr_service_1.ToastrService,

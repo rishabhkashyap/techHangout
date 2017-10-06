@@ -10,10 +10,12 @@
         </div>
         <div class="form-group">
             <label for="eventDate">Presenter:</label>
+            <em *ngIf="presenter.invalid && presenter.dirty">Required</em>
             <input formControlName="presenter"id="presenter" type="text" class="form-control" placeholder="presenter..." />
         </div>
         <div class="form-group">
             <label for="duration">Duration:</label>
+            <em *ngIf="duration.invalid && duration.dirty">Required</em>
             <select formControlName="duration" class="form-control">
         <option value="">select duration...</option>
         <option value="1">Half Hour</option>
@@ -24,6 +26,7 @@
         </div>
         <div class="form-group">
             <label for="level">Level:</label>
+             <em *ngIf="level.invalid && level.dirty">Required</em>
             <select formControlName="level" class="form-control">
         <option value="">select level...</option>
         <option value="Beginner">Beginner</option>
@@ -35,7 +38,7 @@
             <label for="abstract">Abstract:</label>
             <textarea formControlName="abstract" id="abstract" rows=3 class="form-control" placeholder="abstract..."></textarea>
         </div>
-        <button type="submit" class="btn btn-primary">Save</button>
+        <button type="submit" [disabled]="newSessionForm.invalid"class="btn btn-primary">Save</button>
         <button type="button" class="btn btn-default">Cancel</button>
     </form>
 </div>
