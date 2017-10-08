@@ -1,3 +1,4 @@
+import { EVENT_MANAGER_PLUGINS } from '@angular/platform-browser';
 import { Event } from '@angular/platform-browser/src/facade/browser';
 import { IEvent } from './event.model';
 import { SubjectSubscription } from 'rxjs/SubjectSubscription';
@@ -24,6 +25,11 @@ export class EventService {
         event.session=[]
         EVENTS.push(event)
 
+    }
+
+    updateEvent(event:IEvent){
+        let index=EVENTS.findIndex(x=>x.id==event.id)
+        EVENTS[index]=event
     }
 
 }

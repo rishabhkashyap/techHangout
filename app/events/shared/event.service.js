@@ -24,6 +24,10 @@ var EventService = (function () {
         event.session = [];
         EVENTS.push(event);
     };
+    EventService.prototype.updateEvent = function (event) {
+        var index = EVENTS.findIndex(function (x) { return x.id == event.id; });
+        EVENTS[index] = event;
+    };
     EventService = __decorate([
         core_1.Injectable()
     ], EventService);

@@ -2,14 +2,16 @@ import { AbstractControlStatus } from '@angular/forms/src/directives/ng_control_
 import { ISession } from '../shared/event.model';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { FormControl, FormGroup, Validator, Validators } from '@angular/forms';
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 
 @Component({
+    selector:'create-session',
     templateUrl:'app/events/event-details/create-session.component.html'
 
 })
 export class  SessionCOmponent implements OnInit{
+    @Output() newSession=new EventEmitter()
     newSessionForm:FormGroup
     name:FormControl
     presenter:FormControl
@@ -41,7 +43,7 @@ export class  SessionCOmponent implements OnInit{
             abstract:formValues.abstract,
             voters:[]
         }
-        console.log(session)
+        this.newSession.emit(session)
     }
 
 }
