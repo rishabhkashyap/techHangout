@@ -36,4 +36,8 @@ export class EventDetailsComponenet implements OnInit{
 
     }
 
+    cancelAddSession(){
+        this.addMode=false
+    }
+
 }

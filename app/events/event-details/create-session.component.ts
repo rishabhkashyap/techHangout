@@ -12,6 +12,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 })
 export class  SessionCOmponent implements OnInit{
     @Output() newSession=new EventEmitter()
+    @Output() cancelAddSession=new EventEmitter()
     newSessionForm:FormGroup
     name:FormControl
     presenter:FormControl
@@ -45,5 +46,8 @@ export class  SessionCOmponent implements OnInit{
         }
         this.newSession.emit(session)
     }
+     cancel(){
+         this.cancelAddSession.emit()
+     }
 
 }

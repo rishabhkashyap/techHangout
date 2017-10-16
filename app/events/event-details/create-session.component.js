@@ -14,6 +14,7 @@ var core_1 = require("@angular/core");
 var SessionCOmponent = (function () {
     function SessionCOmponent() {
         this.newSession = new core_1.EventEmitter();
+        this.cancelAddSession = new core_1.EventEmitter();
     }
     SessionCOmponent.prototype.ngOnInit = function () {
         this.name = new forms_1.FormControl('', forms_1.Validators.required);
@@ -40,10 +41,17 @@ var SessionCOmponent = (function () {
         };
         this.newSession.emit(session);
     };
+    SessionCOmponent.prototype.cancel = function () {
+        this.cancelAddSession.emit();
+    };
     __decorate([
         core_1.Output(),
         __metadata("design:type", Object)
     ], SessionCOmponent.prototype, "newSession", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", Object)
+    ], SessionCOmponent.prototype, "cancelAddSession", void 0);
     SessionCOmponent = __decorate([
         core_1.Component({
             selector: 'create-session',

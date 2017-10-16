@@ -30,6 +30,9 @@ var EventDetailsComponenet = (function () {
         this.eventService.updateEvent(this.event);
         this.addMode = false;
     };
+    EventDetailsComponenet.prototype.cancelAddSession = function () {
+        this.addMode = false;
+    };
     EventDetailsComponenet = __decorate([
         core_1.Component({
             templateUrl: '/app/events/event-details/event-detaiils.html',
