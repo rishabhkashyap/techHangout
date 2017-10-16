@@ -23,7 +23,7 @@ var EventThumbnailComponent = (function () {
     EventThumbnailComponent = __decorate([
         core_1.Component({
             selector: 'event-thumbnail',
-            template: "<div [routerLink]=\"['/events',techEvent.id]\" class=\"well hoverwell thumbnail\">\n\t\t<h2>{{techEvent.name}}</h2>\n\t\t<div>Date:{{techEvent?.date}}</div>\n\t\t<div>Time:{{techEvent?.time}}</div>\n\t\t<div [ngSwitch]=\"techEvent?.time\">\n\t\t\t<span *ngSwitchCase=\"'08:00 am'\">Early start</span>\n\t\t\t<span *ngSwitchCase=\"'10:00 am'\">Late start</span>\n\t\t\t<span *ngSwitchDefault>Normal start</span>\n\t\t</div>\n\t\t<div>Price:${{techEvent?.price}}</div>\n\t\t<div>\n\t\t\t<span>Location:{{techEvent.location.address}}</span>\n\t\t\t<span>&nbsp;&nbsp;</span><br/>\n\t\t\t<span>City:{{techEvent?.location.city}}</span>\n\t\t</div>\n\n\t</div>\n    ",
+            template: "<div [routerLink]=\"['/events',techEvent.id]\" class=\"well hoverwell thumbnail\">\n\t\t<h2>{{techEvent.name | uppercase}}</h2>\n\t\t<div>Date:{{techEvent?.date}}</div>\n\t\t<div>Time:{{techEvent?.time}}</div>\n\t\t<div [ngSwitch]=\"techEvent?.time\">\n\t\t\t<span *ngSwitchCase=\"'08:00 am'\">Early start</span>\n\t\t\t<span *ngSwitchCase=\"'10:00 am'\">Late start</span>\n\t\t\t<span *ngSwitchDefault>Normal start</span>\n\t\t</div>\n\t\t<div>Price:${{techEvent?.price}}</div>\n\t\t<div>\n\t\t\t<span>Location:{{techEvent.location.address}}</span>\n\t\t\t<span>&nbsp;&nbsp;</span><br/>\n\t\t\t<span>City:{{techEvent?.location.city}}</span>\n\t\t</div>\n\n\t</div>\n    ",
             styles: ["\n\t\t.thumbnail {min-height:210px;}\n\t\t.pad-left {margin-left:10px;}\n\t\t.well div{color:#bbb;}\n\t"]
         })
     ], EventThumbnailComponent);

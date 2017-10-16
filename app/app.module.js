@@ -6,6 +6,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+var duration_pipe_1 = require("./common/duration.pipe");
+var collapsible_well_component_1 = require("./common/collapsible-well.component");
 var session_list_component_1 = require("./events/event-details/session-list.component");
 var create_session_component_1 = require("./events/event-details/create-session.component");
 var forms_1 = require("@angular/forms");
@@ -39,7 +41,9 @@ var AppModule = (function () {
                 event_details_component_1.EventDetailsComponenet,
                 create_eventComponent_1.createEventComponent,
                 create_session_component_1.SessionCOmponent,
-                session_list_component_1.SessionListComponent
+                session_list_component_1.SessionListComponent,
+                collapsible_well_component_1.CollapsibleWellComponent,
+                duration_pipe_1.DurationPipe
             ],
             providers: [event_service_1.EventService,
                 toastr_service_1.ToastrService,

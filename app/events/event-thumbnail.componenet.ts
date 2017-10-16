@@ -1,3 +1,4 @@
+import { UpperCasePipe } from '@angular/common/src/pipes/uppercase_pipe';
 import { IEvent } from './shared/event.model';
 import { NgSwitch, NgSwitchCase, NgSwitchDefault } from '@angular/common/src/directives/ng_switch';
 import {Component,Input} from '@angular/core';
@@ -5,7 +6,7 @@ import {Component,Input} from '@angular/core';
 @Component({
     selector:'event-thumbnail',
     template:`<div [routerLink]="['/events',techEvent.id]" class="well hoverwell thumbnail">
-		<h2>{{techEvent.name}}</h2>
+		<h2>{{techEvent.name | uppercase}}</h2>
 		<div>Date:{{techEvent?.date}}</div>
 		<div>Time:{{techEvent?.time}}</div>
 		<div [ngSwitch]="techEvent?.time">

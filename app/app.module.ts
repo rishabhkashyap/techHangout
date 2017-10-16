@@ -1,3 +1,5 @@
+import { DurationPipe } from './common/duration.pipe';
+import { CollapsibleWellComponent } from './common/collapsible-well.component';
 import { SessionListComponent } from './events/event-details/session-list.component';
 import { SessionCOmponent } from './events/event-details/create-session.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -30,7 +32,9 @@ import{NavBarComponent} from './nav/nav-bar.component';
     EventDetailsComponenet,
     createEventComponent,
     SessionCOmponent,
-    SessionListComponent
+    SessionListComponent,
+    CollapsibleWellComponent,
+    DurationPipe
     ],
     providers:[EventService,
     ToastrService,
