@@ -1,3 +1,4 @@
+import { ToastrService } from '../common/toastr.service';
 import { composeAsyncValidators } from '@angular/forms/src/directives/shared';
 import { Route, Router } from '@angular/router';
 import { AuthService } from './auth.service';
@@ -19,7 +20,7 @@ export class ProfileComponent implements OnInit {
   profileForm: FormGroup
   private firstname: FormControl
   private lastname: FormControl
-  constructor(private route: Router, private authService: AuthService ) { }
+  constructor(private route: Router, private authService: AuthService,private toastrService:ToastrService ) { }
 
   ngOnInit() {
     this.firstname = new FormControl(this.authService.currentUser.firstname,Validators.required)
@@ -33,7 +34,8 @@ export class ProfileComponent implements OnInit {
   updateProfile(formValues) {
     if (this.profileForm.valid) {
       this.authService.update(formValues.firstname, formValues.lastname)
-      this.route.navigate(['events'])
+      //this.route.navigate(['events'])
+      this.toastrService.success('Profile saved')
     }
 
   }
