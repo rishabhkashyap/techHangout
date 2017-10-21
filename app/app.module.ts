@@ -1,3 +1,5 @@
+import { VoterService } from './events/shared/vote.servce';
+import { UpVoteComponent } from './events/event-details/upVote-component';
 import { ModalTriggerDirective } from './common/modal-trigger.directive';
 import { JQ_TOKEN } from './common/jquery.service';
 import { DurationPipe } from './common/duration.pipe';
@@ -39,12 +41,14 @@ declare let jQuery:Object;
     CollapsibleWellComponent,
     DurationPipe,
     SimpleModalComponent,
-    ModalTriggerDirective
+    ModalTriggerDirective,
+    UpVoteComponent
     ],
     providers:[EventService,
     ToastrService,
     EventResolver,
     AuthService,
+    VoterService,
     {provide:JQ_TOKEN,useValue:jQuery}],
     bootstrap:[EventAppCompenent]
 })

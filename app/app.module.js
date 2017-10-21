@@ -6,6 +6,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+var vote_servce_1 = require("./events/shared/vote.servce");
+var upVote_component_1 = require("./events/event-details/upVote-component");
 var modal_trigger_directive_1 = require("./common/modal-trigger.directive");
 var jquery_service_1 = require("./common/jquery.service");
 var duration_pipe_1 = require("./common/duration.pipe");
@@ -48,12 +50,14 @@ var AppModule = (function () {
                 collapsible_well_component_1.CollapsibleWellComponent,
                 duration_pipe_1.DurationPipe,
                 simple_model_component_1.SimpleModalComponent,
-                modal_trigger_directive_1.ModalTriggerDirective
+                modal_trigger_directive_1.ModalTriggerDirective,
+                upVote_component_1.UpVoteComponent
             ],
             providers: [event_service_1.EventService,
                 toastr_service_1.ToastrService,
                 event_resolver_service_1.EventResolver,
                 auth_service_1.AuthService,
+                vote_servce_1.VoterService,
                 { provide: jquery_service_1.JQ_TOKEN, useValue: jQuery }],
             bootstrap: [event_app_component_1.EventAppCompenent]
         })
