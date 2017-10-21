@@ -28,6 +28,23 @@ var EventService = (function () {
         var index = EVENTS.findIndex(function (x) { return x.id == event.id; });
         EVENTS[index] = event;
     };
+    EventService.prototype.searchSession = function (searchTerm) {
+        var result = [];
+        var term = searchTerm.toLocaleLowerCase();
+        EVENTS.forEach(function (event) {
+            var matchingSession = event.sessions.filter(function (session) { return session.name.toLocaleLowerCase().indexOf(term) > -1; });
+            matchingSession = matchingSession.map(function (session) {
+                session.id = event.id;
+                return session;
+            });
+            result = result.concat(matchingSession);
+        });
+        var eventEmitter = new core_1.EventEmitter(true);
+        setTimeout(function () {
+            eventEmitter.emit(result);
+        }, 10);
+        return eventEmitter;
+    };
     EventService = __decorate([
         core_1.Injectable()
     ], EventService);

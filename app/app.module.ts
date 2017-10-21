@@ -1,3 +1,5 @@
+import { ModalTriggerDirective } from './common/modal-trigger.directive';
+import { JQ_TOKEN } from './common/jquery.service';
 import { DurationPipe } from './common/duration.pipe';
 import { CollapsibleWellComponent } from './common/collapsible-well.component';
 import { SessionListComponent } from './events/event-details/session-list.component';
@@ -17,8 +19,9 @@ import{NgModule} from '@angular/core';
 import{BrowserModule} from '@angular/platform-browser';
 import{EventAppCompenent} from './event-app.component';
 import{NavBarComponent} from './nav/nav-bar.component';
+import{SimpleModalComponent} from  './common/simple-model.component';
 
-
+declare let jQuery:Object;
 
 @NgModule({
     imports: [BrowserModule,
@@ -34,12 +37,15 @@ import{NavBarComponent} from './nav/nav-bar.component';
     SessionCOmponent,
     SessionListComponent,
     CollapsibleWellComponent,
-    DurationPipe
+    DurationPipe,
+    SimpleModalComponent,
+    ModalTriggerDirective
     ],
     providers:[EventService,
     ToastrService,
     EventResolver,
-    AuthService],
+    AuthService,
+    {provide:JQ_TOKEN,useValue:jQuery}],
     bootstrap:[EventAppCompenent]
 })
 export class AppModule{

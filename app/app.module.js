@@ -6,6 +6,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+var modal_trigger_directive_1 = require("./common/modal-trigger.directive");
+var jquery_service_1 = require("./common/jquery.service");
 var duration_pipe_1 = require("./common/duration.pipe");
 var collapsible_well_component_1 = require("./common/collapsible-well.component");
 var session_list_component_1 = require("./events/event-details/session-list.component");
@@ -25,6 +27,7 @@ var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
 var event_app_component_1 = require("./event-app.component");
 var nav_bar_component_1 = require("./nav/nav-bar.component");
+var simple_model_component_1 = require("./common/simple-model.component");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -43,12 +46,15 @@ var AppModule = (function () {
                 create_session_component_1.SessionCOmponent,
                 session_list_component_1.SessionListComponent,
                 collapsible_well_component_1.CollapsibleWellComponent,
-                duration_pipe_1.DurationPipe
+                duration_pipe_1.DurationPipe,
+                simple_model_component_1.SimpleModalComponent,
+                modal_trigger_directive_1.ModalTriggerDirective
             ],
             providers: [event_service_1.EventService,
                 toastr_service_1.ToastrService,
                 event_resolver_service_1.EventResolver,
-                auth_service_1.AuthService],
+                auth_service_1.AuthService,
+                { provide: jquery_service_1.JQ_TOKEN, useValue: jQuery }],
             bootstrap: [event_app_component_1.EventAppCompenent]
         })
     ], AppModule);

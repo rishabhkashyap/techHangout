@@ -1,40 +1,60 @@
 import { EVENT_MANAGER_PLUGINS } from '@angular/platform-browser';
 import { Event } from '@angular/platform-browser/src/facade/browser';
-import { IEvent } from './event.model';
+import { IEvent, ISession } from './event.model';
 import { SubjectSubscription } from 'rxjs/SubjectSubscription';
 import { SubjectSubscriber } from 'rxjs/Subject';
 import { Observable, Subject } from 'rxjs/Rx';
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 
 
 
 @Injectable()
 export class EventService {
-    getEvents():Observable<IEvent[]> {
-        let subject=new Subject<IEvent[]>()
-        setTimeout(()=>{subject.next(EVENTS);subject.complete();},1)
+    getEvents(): Observable<IEvent[]> {
+        let subject = new Subject<IEvent[]>()
+        setTimeout(() => { subject.next(EVENTS); subject.complete(); }, 1)
 
         return subject
     }
-    getEventById(id:number):IEvent{
-        return EVENTS.find(event=>event.id===id)
-        
+    getEventById(id: number): IEvent {
+        return EVENTS.find(event => event.id === id)
+
     }
-    saveEvent(event){
-        event.id=999
-        event.session=[]
+    saveEvent(event) {
+        event.id = 999
+        event.session = []
         EVENTS.push(event)
 
     }
 
-    updateEvent(event:IEvent){
-        let index=EVENTS.findIndex(x=>x.id==event.id)
-        EVENTS[index]=event
+    updateEvent(event: IEvent) {
+        let index = EVENTS.findIndex(x => x.id == event.id)
+        EVENTS[index] = event
+    }
+    searchSession(searchTerm : string) {
+        var result: ISession[] = [];
+        var term = searchTerm.toLocaleLowerCase();
+        EVENTS.forEach(event => {
+            var matchingSession = event.sessions.filter(session => session.name.toLocaleLowerCase().indexOf(term) > -1);
+                matchingSession = matchingSession.map((session: ISession) => {
+                    session.id = event.id;
+                    return session;
+                });
+               
+            
+             result=result.concat(matchingSession);
+        })
+        var eventEmitter = new EventEmitter(true);
+        setTimeout(()=>{
+            eventEmitter.emit(result);
+        },10)        
+        
+        return eventEmitter;
     }
 
 }
 
-const EVENTS:IEvent[] = [
+const EVENTS: IEvent[] = [
     {
         id: 1,
         name: 'Angular Connect',
