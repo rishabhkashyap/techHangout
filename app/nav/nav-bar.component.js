@@ -23,7 +23,6 @@ var NavBarComponent = (function () {
         this.eventService.searchSession(searchTerm).subscribe(function (sessions) {
             _this.foundSession = sessions;
         });
-        console.log(this.foundSession);
     };
     NavBarComponent = __decorate([
         core_1.Component({

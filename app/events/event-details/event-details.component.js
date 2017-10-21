@@ -19,7 +19,12 @@ var EventDetailsComponenet = (function () {
         this.filterBy = 'all';
     }
     EventDetailsComponenet.prototype.ngOnInit = function () {
-        this.event = this.eventService.getEventById(+this.route.snapshot.params['id']);
+        var _this = this;
+        this.route.params.forEach(function (params) {
+            _this.event = _this.eventService.getEventById(+params['id']);
+            _this.addMode = false;
+        });
+        //this.event=this.eventService.getEventById(+this.route.snapshot.params['id'])
     };
     EventDetailsComponenet.prototype.addSession = function () {
         this.addMode = true;

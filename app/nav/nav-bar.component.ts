@@ -24,7 +24,7 @@ export class NavBarComponent{
                 this.foundSession=sessions;
             }
         );
-        console.log(this.foundSession);
+       
 
     }
 

@@ -8,21 +8,39 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
 Object.defineProperty(exports, "__esModule", { value: true });
+var jquery_service_1 = require("./jquery.service");
 var core_1 = require("@angular/core");
 var SimpleModalComponent = (function () {
-    function SimpleModalComponent() {
+    function SimpleModalComponent($) {
+        this.$ = $;
     }
+    SimpleModalComponent.prototype.closeModal = function () {
+        this.$(this.elementRef.nativeElement).modal('hide');
+    };
     __decorate([
         core_1.Input(),
         __metadata("design:type", String)
     ], SimpleModalComponent.prototype, "title", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], SimpleModalComponent.prototype, "elementId", void 0);
+    __decorate([
+        core_1.ViewChild('modalContainer'),
+        __metadata("design:type", core_1.ElementRef)
+    ], SimpleModalComponent.prototype, "elementRef", void 0);
     SimpleModalComponent = __decorate([
         core_1.Component({
             selector: 'simple-modal',
-            template: "\n  <div id=\"simple-modal\"  class=\"modal fade\" tabindex=\"-1\">\n    <div class=\"modal-dialog\">\n      <div class=\"modal-content\">\n        <div class=\"modal-header\">\n          <button type=\"button\" class=\"close\" data-dismiss=\"modal\"><span>&times;</span></button>\n          <h4 class=\"modal-title\">{{title}}</h4>\n        </div>\n        <div class=\"modal-body\" (click)=\"closeModal()\">\n          <ng-content></ng-content>\n        </div>\n      </div>\n    </div>\n  </div>\n  ",
+            template: "\n  <div id=\"{{elementId}}\" #modalContainer  class=\"modal fade\" tabindex=\"-1\">\n    <div class=\"modal-dialog\">\n      <div class=\"modal-content\">\n        <div class=\"modal-header\">\n          <button type=\"button\" class=\"close\" data-dismiss=\"modal\"><span>&times;</span></button>\n          <h4 class=\"modal-title\">{{title}}</h4>\n        </div>\n        <div class=\"modal-body\" (click)=\"closeModal()\">\n          <ng-content></ng-content>\n        </div>\n      </div>\n    </div>\n  </div>\n  ",
             styles: ["\n    .modal-body { height: 250px; overflow-y: scroll; }\n  "]
-        })
+        }),
+        __param(0, core_1.Inject(jquery_service_1.JQ_TOKEN)),
+        __metadata("design:paramtypes", [Object])
     ], SimpleModalComponent);
     return SimpleModalComponent;
 }());

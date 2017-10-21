@@ -40,15 +40,15 @@ export class EventService {
                     session.id = event.id;
                     return session;
                 });
-               
-            
+
+
              result=result.concat(matchingSession);
         })
         var eventEmitter = new EventEmitter(true);
         setTimeout(()=>{
             eventEmitter.emit(result);
-        },10)        
-        
+        },10)
+
         return eventEmitter;
     }
 
